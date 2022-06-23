@@ -39,7 +39,7 @@ else
  Finchè l'utente non scrive un cibo preferito presente dentro l'array, allora gli comunicate che il cibo non è presente e gli richiedete di inserirlo nuovamente
 */
 
-Console.WriteLine("Please enter your favorite food: ");
+Console.WriteLine("\nPlease enter your favorite food between the list above: ");
 string favoriteInput = Console.ReadLine().ToLower();
 while (!favoriteFoods.Contains(favoriteInput))
 {
@@ -54,16 +54,16 @@ for (int i = 0; i < favoriteFoods.Length; i++)
 {
     if (i == userChoice)
     {
-        string message = userChoice == pcChoice ? "We have the same taste: " : "Your favorite food is: ";
-        Console.WriteLine(message + favoriteFoods[i]);
+        string message = userChoice == pcChoice ? "we have the same taste, this is our favorite food" : "this is your favorite food";
+        Console.WriteLine($" {i}. {favoriteFoods[i]} --->  {message}");
     }
     else if (i == pcChoice)
     {
-        Console.WriteLine($"This is the computer's favorite food: {favoriteFoods[i]}");
+        Console.WriteLine($" {i}. {favoriteFoods[i]} ---> computer favorite food");
     }
     else
     {
-        Console.WriteLine($"{favoriteFoods[i]}");
+        Console.WriteLine($" {i}. {favoriteFoods[i]}");
     }
         
 }

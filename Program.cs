@@ -1,10 +1,11 @@
-﻿string[] favoriteFoodsOdd = { "pizza", "burgers", "sushi", "steak", "apples" };
-string[] favoriteFoodsEven = favoriteFoodsOdd.Concat(new string[] { "carrots" }).ToArray();
+﻿string[] favoriteFoods = { "pizza", "burgers", "sushi", "steak", "apples" };
 
 Random random = new Random();
-int randomNumber = random.Next(0, 2);
 
-string[] favoriteFoods = randomNumber == 0 ? favoriteFoodsEven : favoriteFoodsOdd;
+if (random.Next(0,2) == 0)
+{
+    favoriteFoods = favoriteFoods.Concat(new string[] { "carrots" }).ToArray();
+}
 
 Console.WriteLine($"Array length: {favoriteFoods.Length}");
 

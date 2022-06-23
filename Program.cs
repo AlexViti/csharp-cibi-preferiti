@@ -40,30 +40,31 @@ else
 */
 
 Console.WriteLine("\nPlease enter your favorite food between the list above: ");
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
 string favoriteInput = Console.ReadLine().ToLower();
+
 while (!favoriteFoods.Contains(favoriteInput))
 {
     Console.WriteLine("This food is not present in the list, please enter a new one: ");
     favoriteInput = Console.ReadLine().ToLower();
+    #pragma warning restore CS8602 // Dereference of a possibly null reference.
 }
 
-int pcChoice = random.Next(0, favoriteFoods.Length);
 int userChoice = Array.IndexOf(favoriteFoods, favoriteInput);
+int pcChoice = random.Next(0, favoriteFoods.Length);
 
 for (int i = 0; i < favoriteFoods.Length; i++)
 {
+    string message = "";
     if (i == userChoice)
     {
-        string message = userChoice == pcChoice ? "we have the same taste, this is our favorite food" : "this is your favorite food";
-        Console.WriteLine($" {i}. {favoriteFoods[i]} --->  {message}");
+        message += "---> ";
+        message += userChoice == pcChoice ? "we have the same taste, this is our favorite food" : "this is your favorite food";
     }
     else if (i == pcChoice)
     {
-        Console.WriteLine($" {i}. {favoriteFoods[i]} ---> computer favorite food");
+        message += "---> computer favorite food";
     }
-    else
-    {
-        Console.WriteLine($" {i}. {favoriteFoods[i]}");
-    }
-        
+    
+    Console.WriteLine($" {i + 1}. {favoriteFoods[i]} {message}");
 }
